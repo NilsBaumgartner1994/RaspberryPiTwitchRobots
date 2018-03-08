@@ -5,6 +5,7 @@ This is a small example which connects to a user's chat channel to
 send and receive the messages posted there
 """
 from __future__ import print_function
+from credentials import *
 from twitchstream.outputvideo import TwitchOutputStreamRepeater
 from twitchstream.chat import TwitchChatStream
 import argparse
@@ -22,31 +23,29 @@ def check_if_cmd(dictMessage):
     print(username+': '+message)
     
     print('Command: '+message)
-    splits = message.split()
-    state = float(splits[0])
-    x = int(splits[1])
-    y = int(splits[2])
-    print('intense: '+str(state)+' at: '+str(x)+' '+str(y))
-    display.update_pos(state,x,y)
-    display.show_grid()
+    if message == 'reset':
+        display.reset_grid()
+        print('resetted')
+    else:
+	print('Light it up')
+        splits = message.split()
+        state = float(splits[0])
+        x = int(splits[1])
+        y = int(splits[2])
+        print('intense: '+str(state)+' at: '+str(x)+' '+str(y))
+        display.update_pos(state,x,y)
+        display.show_grid()
+        chatstream.send_chat_message("Okay!")
+        
     
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
-    required = parser.add_argument_group('required arguments')
-    required.add_argument('-u', '--username',
-                          help='twitch username',
-                          required=True)
-    required.add_argument('-o', '--oauth',
-                          help='twitch oauth '
-                               '(visit https://twitchapps.com/tmi/ '
-                               'to create one for your account)',
-                          required=True)
-    args = parser.parse_args()
+    myToken = 'oauth:'+TwitchToken
+    myUsername = TwitchUsername
 
     # Launch a verbose (!) twitch stream
-    with TwitchChatStream(username=args.username,
-                          oauth=args.oauth,
+    with TwitchChatStream(username=myUsername,
+                          oauth=myToken,
                           verbose=True) as chatstream:
 
         # Send a message to this twitch stream

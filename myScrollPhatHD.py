@@ -15,7 +15,11 @@ class MyScrollPhat:
     def __init__(self):
         self.height = scrollphathd.height
         self.width = scrollphathd.width
-        self.grid = [[off for j in range(self.height)] for i in range(self.width)]
+	self.grid = [[off for j in range(self.height)] for i in range(self.width)]
+
+    def reset_grid(self):
+	self.grid = [[off for j in range(self.height)] for i in range(self.width)]
+	self.show_grid()
 
     def show_grid(self):
         scrollphathd.clear()
