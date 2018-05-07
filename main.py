@@ -1,7 +1,9 @@
-import myRobotTwitchChat
+import TouchController
+#import myRobotPrivateController
 
 def main():
-     myRobotTwitchChat.mainLoop()
+     TouchController.mainLoop()
+     #myRobotPrivateController.mainLoop()
    
 
 if __name__ == '__main__':

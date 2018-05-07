@@ -1,5 +1,0 @@
-TwitchStreamKey = 'live_60571661_eMyGKli6Lq6JXikzJlld0KCOfNOhon'
-TwitchClientID = 'oi3hg5qga48wqnw20gx0yo2k80o7wu'
-TwitchToken = '9gcl6ca2lv2scm2hbnp2m1vewjsqqc'
-TwitchChannelID = '60571661'
-TwitchUsername = 'jack5496'
