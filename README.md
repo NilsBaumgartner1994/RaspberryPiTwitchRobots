@@ -1,1 +1,1 @@
-# RaspberryPi King of Thieves Bot
+# RaspberryPiTwitchRobots
